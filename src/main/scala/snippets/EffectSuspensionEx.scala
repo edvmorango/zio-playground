@@ -2,7 +2,7 @@ package snippets
 
 import scalaz.zio.{App, IO}
 
-object EffectSuspension extends App {
+object EffectSuspensionEx extends App {
 
   def run(args: List[String]): IO[Nothing, ExitStatus] = {
 

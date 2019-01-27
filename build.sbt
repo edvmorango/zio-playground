@@ -4,13 +4,22 @@ version := "0.1"
 
 scalaVersion := "2.12.8"
 
-libraryDependencies += "org.scalaz" %% "scalaz-zio" % "0.6.0"
+libraryDependencies ++= Seq(
+  "org.scalaz" %% "scalaz-zio",
+  "org.scalaz" %% "scalaz-zio-interop-shared",
+  "org.scalaz" %% "scalaz-zio-interop-future"
+
+).map(_ %  "0.6.0")
 
 libraryDependencies ++= Seq (
   "org.scalatest" %% "scalatest" % "3.2.0-SNAP10",
   "org.scalacheck" %% "scalacheck" % "1.14.0"
 ).map(_ % Test)
 
+libraryDependencies ++= Seq (
+  "com.softwaremill.sttp" %% "core",
+  "com.softwaremill.sttp" %% "async-http-client-backend-future"
+).map(_ % "1.5.8")
 
 addCommandAlias("fmt", "all scalafmtSbt scalafmt test:scalafmt")
 addCommandAlias(

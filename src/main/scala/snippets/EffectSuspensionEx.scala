@@ -1,11 +1,13 @@
 package snippets
 
-import scalaz.zio.{App, IO}
+import scalaz.zio.{App, IO, ZIO}
 
 object EffectSuspensionEx extends App {
 
-  def run(args: List[String]): IO[Nothing, ExitStatus] = {
+  def run(
+      args: List[String]): ZIO[EffectSuspensionEx.Environment, Nothing, Int] = {
 
+    // same than succeedLazy
     val lazyEvaluation = IO.succeedLazy {
       println("I'm a effect occurring in every call")
       10
@@ -23,8 +25,6 @@ object EffectSuspensionEx extends App {
       _ <- lazyEvaluation
       _ <- lazyEvaluation
       _ <- lazyEvaluation
-    } yield ExitStatus.ExitNow(1)
-
+    } yield 1
   }
-
 }

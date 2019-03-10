@@ -9,7 +9,7 @@ libraryDependencies ++= Seq(
   "org.scalaz" %% "scalaz-zio-interop-shared",
   "org.scalaz" %% "scalaz-zio-interop-future"
 
-).map(_ %  "0.6.0")
+).map(_ %  "1.0-RC1")
 
 libraryDependencies ++= Seq (
   "org.scalatest" %% "scalatest" % "3.2.0-SNAP10",
@@ -54,3 +54,9 @@ scalacOptions ++= Seq(
   "-Ywarn-value-discard"
 )
 
+
+scalacOptions in (Compile, console) := scalacOptions.value filterNot Set (
+  "-Xfatal-warnings",
+  "-Xlint",
+  "-Ywarn-unused-import",
+)

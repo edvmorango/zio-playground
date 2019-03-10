@@ -15,13 +15,13 @@ case class Avenger(url: String,
                    active: Boolean,
                    gender: String)
 
-object StreamEx extends App {
+object StreamSinkEx extends App {
 
   implicit val sttpBackend = AsyncHttpClientFutureBackend()
 
   val ec = ExecutionContext.global
 
-  def run(args: List[String]): IO[Nothing, StreamEx.ExitStatus] = {
+  def run(args: List[String]): IO[Nothing, StreamSinkEx.ExitStatus] = {
 
     def readFile(name: String) =
       IO.succeed(Source.fromFile(s"src/main/resources/$name", "UTF-8"))

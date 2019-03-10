@@ -4,7 +4,6 @@ import java.util.concurrent.TimeUnit
 
 import scalaz.zio.duration.Duration
 import scalaz.zio.{App, IO, Promise}
-
 object PromiseEx extends App {
 
   def run(args: List[String]): IO[Nothing, PromiseEx.ExitStatus] = {
